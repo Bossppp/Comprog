@@ -1,0 +1,112 @@
+bool sortspecial (pair<string,double> a , pair<string,double> b){
+    if(a.second == b.second){
+        return a.first < b.first;
+    }
+    return a.second > b.second;
+}
+
+เรียงจากข้างหลัง โดยเรียงจากมากไปน้อย
+ถ้าเท่ากัน เรียงตัวหน้าตามพจนานุกรม (ref.top3sales)
+
+vector<set<int>> sets;
+while(getline(cin, line)){
+        set<int> temp;
+        stringstream ss(line);
+        int x;
+        while(ss >> x){
+            temp.insert(x);
+        }
+        sets.push_back(temp);
+
+    }
+
+รับข้อมูลมาบรรทัดละ 1 เซต (ref. set_operation)
+
+while(n--){
+    getline(cin,line);
+    //spliting line
+    int index = line.find(',');
+    song = line.substr(0,index);
+    singer = line.substr(index+2);
+    //cout << "---test---" << song << " " << singer << endl;
+    whosing[song].push_back(singer);
+}
+
+รับข้อมูลตามบรรทัดแต่ว่าต้อง split การรับ
+เป็นเพลงกับนักร้องตามการเจอ อักขระบางอัน (ref. whosingsong)
+
+int fac(int n){
+    int sum = 1;
+    for(int i=0;i<=n;i++){
+        sum *= i;
+    }
+    return sum
+}
+
+int Fac(int n){
+    if(n == 0) return 1;
+    return n*Fac(n-1);
+}
+
+map.find(x) คือ การรับ key มาแล้วหา value
+
+map สามารถรับแบบนี้ได้ map[k1 + " " + k2] = val;
+
+string(count,คำ) จะเติม คำไป count ตัว
+
+ลองเล่นกับ substr ดู ex rotate หัวไปต่อท้าย
+-> for(int i=0;i<size();i++){
+    rotate = y.substr(i,string::npos) + y.substr(0,i);
+}
+
+เราสามารถเข้าถึง char ใน string ที่เก็บใน vector ได้ แบบนี้
+eg. v[i][y.size()-1]
+
+เราสามารถ เข้าถึง double2 ใน map<string,pair<double1,double2>>
+ด้วยการ .second.second 
+
+itr in map and set no < > only == !=
+เข้าถึง"ค่า" iterator ให้ * ใส่ไป หรือ itr->first งี้ก้ได้
+
+s.find() == s.end() แปลว่าไม่เจอ
+s.find() != s.end() แปลว่ามี
+
+for(auto e : v){
+    for(auto m : map[e])
+} 
+สามารทำแบบนนี้ได้ถ้าใน v มี key ของ map อยู่
+
+ถ้าจะเรียก function แต่ที่เขียนมันอยู่ข้างล่าง เรียกมันข้างบนเราได้
+eg.
+    int x(int n);
+    int F(int n){
+        return x(n+1);
+    }
+
+    int x(int n){
+
+    }
+
+ while(cin >> s1){
+        if(!(cin >> s2)) break;
+        nextStation[s1].insert(s2);
+        nextStation[s2].insert(s1);
+    }
+สั่ง cin ประมาณนี้ได้ (ref: skytrain)
+
+int phi(int n, int p = 2) {
+    if (n == 1) {
+        return 1;
+    }
+    // หา p ที่เป็นตัวประกอบเฉพาะของ n
+    while (n % p != 0) {
+        p++;
+    }
+    // ถ้า p เป็นตัวประกอบเฉพาะของ n ให้ทำการลดขนาด n
+    int reduced_n = n;
+    while (reduced_n % p == 0) {
+        reduced_n /= p;
+    }
+    return phi(reduced_n, p + 1) * (n / p) * (p - 1) / p;
+}
+
